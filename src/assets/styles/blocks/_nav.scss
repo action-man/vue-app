@@ -1,0 +1,113 @@
+/*--------------------------------------------------*\
+  =Nav
+\*--------------------------------------------------*/
+
+.nav {
+
+
+
+  /**
+   * Elements
+   */
+
+  &__link {
+    display: block;
+    font-weight: bold;
+    transition: color $transition-base;
+  }
+
+
+
+  /**
+   * MQ
+   */
+
+  @include mq($until: smart) {
+
+    &__burger {
+      display: block;
+    }
+
+    &__main {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: white;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px;
+      width: 90%;
+      max-width: 300px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.5);
+      transform: translateX(-120%);
+      transition: transform .8s cubic-bezier(.23,1,.32,1);
+      z-index: 10;
+
+      .is-open & {
+        transform: translateX(0%);
+      }
+
+    }
+
+    &__item {
+      border-bottom: 2px solid color('muted-light');
+    }
+
+    &__link {
+      padding: 12px 10px;
+      text-transform: uppercase;
+    }
+
+    &__overlay {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 9;
+      background-color: rgba(0, 0, 0, .75);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity, visibility;
+      transition-duration: .4s;
+  
+      .is-open & {
+        opacity: 1;
+        visibility: visible;
+      }
+  
+    }
+
+  }
+  
+  @include mq(smart) {
+    
+    &__burger {
+      display: none;
+    }
+
+    &__list {
+      display: flex;
+    }
+  
+    &__item {
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 2px solid color('muted-light');
+  
+      &:first-child {
+        margin-left: 0;
+        border-left: 0;
+        padding-left: 0;
+      }
+  
+    }
+
+    &__overlay {
+      display: none;
+    }
+
+  }
+
+}

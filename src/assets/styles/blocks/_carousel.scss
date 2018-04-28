@@ -1,0 +1,61 @@
+/*--------------------------------------------------*\
+  =Carousel
+\*--------------------------------------------------*/
+
+.carousel {
+
+
+
+  /**
+   * Elements
+   */
+
+  &__item {
+    width: 75%;
+    margin-right: 15px;
+    background-color: color('muted-light');
+  }
+
+  &__item-inner {
+    padding-bottom: 75%;
+
+    img {
+      opacity: 0;
+      transition: opacity .4s;
+
+      &.flickity-lazyloaded {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  .flickity-page-dots {
+    display: flex;
+    justify-content: center;
+    position: static;
+    margin-top: 20px;
+
+    .dot {
+      display: block;
+      margin: 0 5px;
+    }
+
+  }
+
+
+
+  /**
+   * MQ
+   */
+  
+  @include mq(smart) {
+
+    &__item {
+      width: 50%;
+    }
+
+  }
+
+}
